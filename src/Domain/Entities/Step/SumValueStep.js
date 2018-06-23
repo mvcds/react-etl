@@ -1,8 +1,8 @@
-function SumValueStep (data) {
-  const value = data[this.column]
+function SumValueStep (row) {
+  const value = row[this.column]
 
   return {
-    ...data,
+    ...row,
     [ this.column ]: value + this.value
   }
 }
