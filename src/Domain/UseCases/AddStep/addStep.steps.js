@@ -8,11 +8,9 @@ const Pipeline = require('Domain/Entities/Pipeline')
 const Steps = require('Domain/Entities/Step/step.fixture')
 
 function upload (fileName) {
-  const filePath = `${__dirname}/fixtures/${fileName}.fixture.json`
+  const file = require(`Fixtures/${fileName}.fixture.json`)
 
-  const file = fs.readFileSync(filePath, 'utf8')
-
-  const { data } = JSON.parse(file)
+  const { data } = file
 
   return data
 }
