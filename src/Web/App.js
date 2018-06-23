@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Pipeline from './Components/Organisms/Pipeline'
+
+import PinelineFactory from '../Domain/Entities/Pipeline/pipeline.fixture'
+
+//  In a real app would come from the server
+const pipeline = PinelineFactory.OfEmployees()
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <Pipeline model={pipeline} />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 function Pipeline (data) {
   this.data = data
   this.steps = []
+  this.columns = []
 }
 
 function performStep (final, step) {
@@ -15,6 +16,19 @@ function getResult () {
 
 Pipeline.prototype.addStep = function (step) {
   this.steps = [ ...this.steps, step ]
+
+  return this
+}
+
+Pipeline.prototype.addColumn = function (column) {
+  const newColumn = {
+    Header: column,
+    accessor: column
+  }
+
+  this.columns = [ ...this.columns, newColumn ]
+
+  return this
 }
 
 Object.defineProperty(Pipeline.prototype, 'result', { get: getResult })

@@ -4,21 +4,11 @@ const { random } = require('faker')
 
 const { Given, When, Then } = require('cucumber')
 
-const Pipeline = require('Domain/Entities/Pipeline')
+const Pipeline = require('Domain/Entities/Pipeline/pipeline.fixture')
 const Steps = require('Domain/Entities/Step/step.fixture')
 
-function upload (fileName) {
-  const file = require(`Fixtures/${fileName}.fixture.json`)
-
-  const { data } = file
-
-  return data
-}
-
-Given('I upload the {string} data to the pipeline', function (fileName) {
-  const data = upload(fileName)
-
-  this.pipeline = new Pipeline(data)
+Given('I use the {string} fixture', function (fixture) {
+  this.pipeline = Pipeline[fixture]()
 })
 
 When('I sum some value to their {string}', function (column) {

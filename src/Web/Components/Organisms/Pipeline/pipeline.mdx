@@ -1,0 +1,27 @@
+---
+name: Pipeline
+---
+
+import { PropsTable, Playground } from 'docz'
+
+import PinelineFactory from '../../../../Domain/Entities/Pipeline/pipeline.fixture'
+
+import Pipeline from './index'
+
+# Pipeline
+
+<Playground>
+  {
+    () => {
+      const { data, columns } = PinelineFactory.OfEmployees()
+
+      return (
+        <Pipeline data={data} columns={columns} />
+      )
+    }
+  }
+</Playground>
+
+## Props
+
+<PropsTable of={Pipeline} />

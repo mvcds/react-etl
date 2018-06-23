@@ -4,6 +4,6 @@ Feature: Add Step
   So that I can extrapolate information
 
   Scenario: Sum fixed value
-    Given I upload the "employees" data to the pipeline
+    Given I use the "OfEmployees" fixture
     When I sum some value to their "income"
     Then the result will be increased by that value
