@@ -10,6 +10,7 @@ import PinelineFactory from '../Domain/Entities/Pipeline/pipeline.fixture'
 //  In a real app would come from the server
 const pipeline = PinelineFactory.OfEmployees()
   .addStep(StepFactory.SumValue({ column: 'income', value: 5 }))
+  .addStep(StepFactory.SumValue({ column: 'income', value: -3 }))
 
 class App extends Component {
   render() {
