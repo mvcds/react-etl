@@ -13,10 +13,10 @@ import Pipeline from './index'
 <Playground>
   {
     () => {
-      const { data, columns } = PinelineFactory.OfEmployees()
+      const { data, columns, steps } = PinelineFactory.OfEmployees()
 
       return (
-        <Pipeline data={data} columns={columns} />
+        <Pipeline data={data} columns={columns} steps={steps} />
       )
     }
   }

@@ -11,7 +11,7 @@ import Step from './index'
 <Playground>
   {
     () => {
-      const columns = [{
+      const options = [{
           label: 'Name',
           value: 'name'
         }, {
@@ -23,7 +23,7 @@ import Step from './index'
       return (
         <Step
           value={5}
-          columns={columns}
+          options={options}
         />
       )
     }

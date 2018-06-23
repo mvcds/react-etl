@@ -4,12 +4,13 @@ import Pipeline from './index'
 
 class PipelineState extends Component {
   render () {
-    const { data, columns } = this.props.model
+    const { data, columns, steps, result } = this.props.model
 
     return (
       <Pipeline
-        data={data}
+        data={result}
         columns={columns}
+        steps={steps}
       />
     )
   }

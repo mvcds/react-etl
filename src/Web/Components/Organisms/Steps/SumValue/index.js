@@ -5,19 +5,30 @@ import Select from 'react-select'
 
 import 'react-select/dist/react-select.css'
 
-function SumValueStep ({ selected, columns, value }) {
+function SumValueStep ({ column, options, value, editable }) {
   return (
     <div>
-      Into <Select value={selected} options={columns} clearable={false} />
-      Sum <NumericInput value={value} precision={2} step={0.01} />
+      Into <Select
+        value={column}
+        options={options}
+        clearable={false}
+        disabled={!editable}
+      />
+      Sum <NumericInput
+        value={value}
+        precision={2}
+        step={0.01}
+        disabled={!editable}
+      />
     </div>
   )
 }
 
 SumValueStep.propTypes = {
-  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
   value: PropTypes.number.isRequired,
-  selected: PropTypes.string
+  editable: PropTypes.bool.isRequired,
+  column: PropTypes.string
 }
 
 export default SumValueStep
