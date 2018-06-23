@@ -1,0 +1,35 @@
+---
+name: Sum Value Step
+---
+
+import { PropsTable, Playground } from 'docz'
+
+import Step from './index'
+
+# Sum Value Step
+
+<Playground>
+  {
+    () => {
+      const columns = [{
+          label: 'Name',
+          value: 'name'
+        }, {
+          label: 'Home Income',
+          value: 'income'
+        }
+      ]
+
+      return (
+        <Step
+          value={5}
+          columns={columns}
+        />
+      )
+    }
+  }
+</Playground>
+
+## Props
+
+<PropsTable of={Step} />
