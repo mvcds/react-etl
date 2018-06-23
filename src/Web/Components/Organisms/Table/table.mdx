@@ -1,0 +1,49 @@
+---
+name: Table
+---
+
+import { PropsTable, Playground } from 'docz'
+
+import Table from './index'
+
+# Table
+
+<Playground>
+  {
+    () => {
+      const Person1 = {
+        name: 'Tanner Linsley',
+        partner: {
+          name: 'Jason Maurer'
+        }
+      }
+      const Person2 = {
+        name: 'Rodney Muller',
+        partner: {
+          name: 'Stephanny Stephan'
+        }
+      }
+
+      const columns = [{
+          Header: 'Name',
+          accessor: 'name'
+        }, {
+          id: 'partnerName',
+          Header: 'Partner Name',
+          accessor: d => d.partner.name
+        }
+      ]
+
+      return (
+        <Table
+          data={[ Person1, Person2 ]}
+          columns={columns}
+        />
+      )
+    }
+  }
+</Playground>
+
+## Props
+
+<PropsTable of={Table} />

@@ -4,14 +4,21 @@
   "private": true,
   "author": "Marcos Vinícius C. da Silva <marvinc.silva@gmail.com>",
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-table": "^6.8.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ui": "docz dev --port=3001"
+  },
+  "devDependencies": {
+    "docz": "^0.2.11",
+    "docz-plugin-css": "^0.2.11"
   }
 }
