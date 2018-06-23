@@ -4,13 +4,21 @@ import PropTypes from 'prop-types'
 import Table from '../Table'
 import Steps from '../Steps'
 
-function ShowStep (step) {
+function ShowStep (step, index) {
   return (
-    <Steps
-      {...step}
-      columns={this.columns}
-      editable={false}
-    />
+    <React.Fragment key={index}>
+      <details>
+        <summary>
+          Step #{index + 1}
+        </summary>
+        <Steps
+          {...step}
+          columns={this.columns}
+          editable={false}
+        />
+      </details>
+      <br />
+    </React.Fragment>
   )
 }
 
@@ -22,11 +30,20 @@ function ListOfSteps ({ steps, columns }) {
   )
 }
 
-function Pipeline ({ data, columns, steps }) {
+function Pipeline ({ original, data, columns, steps }) {
 	return (
     <div>
+      <div>
+        <header>Source</header>
+        <Table data={original} columns={columns} />
+      </div>
+      <br />
       {!!steps.length && <ListOfSteps steps={steps} columns={columns} />}
-      <Table data={data} columns={columns} />
+      <br />
+      <div>
+        <header>Final</header>
+        <Table data={data} columns={columns} />
+      </div>
     </div>
   )
 }
@@ -34,6 +51,7 @@ function Pipeline ({ data, columns, steps }) {
 Pipeline.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  original: PropTypes.arrayOf(PropTypes.object).isRequired,
   steps: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 

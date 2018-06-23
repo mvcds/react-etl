@@ -8,6 +8,7 @@ class PipelineState extends Component {
 
     return (
       <Pipeline
+        original={data}
         data={result}
         columns={columns}
         steps={steps}
