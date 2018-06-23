@@ -14,11 +14,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:integration": "NODE_PATH=./src cucumber-js \"src/Domain/UseCases/**/*.feature\"",
+    "test:integration:watch": "yarn test:integration && watch -p \"src/**/*.+(js|feature|json)\" -c \"yarn test:integration\"",
     "eject": "react-scripts eject",
     "ui": "docz dev --port=3001"
   },
   "devDependencies": {
+    "cucumber": "^4.2.1",
     "docz": "^0.2.11",
-    "docz-plugin-css": "^0.2.11"
+    "docz-plugin-css": "^0.2.11",
+    "faker": "^4.1.0",
+    "watch-cli": "^0.2.3"
   }
 }
